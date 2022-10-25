@@ -1,24 +1,9 @@
-# README
+# Odin Flight Booker
+The system will allow a user to create an account, sign in and out. Along with prompting the user to select a destination and departure, location and date. It will then search the populated database for the flights avaliable to them. 
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+* The database will be seeded to populate Airports and flights.
 
-Things you may want to cover:
+* This Readme file will be updated on completion of the project.
 
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+# The Odin Project 
+This is a part of The Odin Projects Ruby on Rails curriculumn. [Project: Flight Booker](https://www.theodinproject.com/lessons/ruby-on-rails-flight-booker)
