@@ -10,7 +10,18 @@ Flight.delete_all
 
 airports = Airport.create([{airport_code: "DUB"}, {airport_code: "KER"}, {airport_code: "CRK"}])
 
-flights = Flight.create([{start_datetime: Date.parse('1-Nov-22'), duration: 200, departure_airport_id: 3, arrival_airport_id: 1},
-  {start_datetime: Date.parse('3-Nov-22'), duration: 150, departure_airport_id: 3, arrival_airport_id: 2},
-  {start_datetime: Date.parse('14-Nov-22'), duration: 100, departure_airport_id: 1, arrival_airport_id: 2}
-  ])
+3.times do
+  da_id = Airport.order(Arel.sql('RANDOM()')).first.id
+  aa_id = Airport.order(Arel.sql('RANDOM()')).where('id != ?', da_id).first.id
+  duration = rand(30..240)
+  time = rand(30.days).seconds.from_now
+  Flight.create([{start_datetime: time, duration: duration, departure_airport_id: da_id, arrival_airport_id: aa_id}])
+end
+
+# 40.times do
+#   da_id = Airport.order(Arel.sql('RANDOM()')).first.id
+#   aa_id = Airport.order(Arel.sql('RANDOM()')).where('id != ?', da_id).first.id
+#   d_time = rand(30.days).seconds.from_now
+#   duration = rand(30..240)
+#   Flight.create(departure_airport_id: da_id, arrival_airport_id: aa_id, duration: duration, start_datetime: d_time)
+# end

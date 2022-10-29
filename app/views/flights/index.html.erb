@@ -1,2 +1,27 @@
-<h1>Flights#index</h1>
-<p>Find me in app/views/flights/index.html.erb</p>
+<h1>Odin Flight Booker</h1>
+
+<%= form_with model: @flight, method: "get" do |f| %>
+  <div>
+    <%= f.label "From:" %>
+    <%= f.select(:departure_airport_id, @airport_options) %>
+  </div>
+
+  <div>
+    <%= f.label "To:" %>
+    <%= f.select(:arrival_airport_id, @airport_options) %>
+  </div>
+  
+  <div>
+    <%= f.label "Passengers:" %>
+    <%= f.select(:airport, @passengers) %>
+  </div>
+
+  <div>
+    <%= f.label "Date:" %>
+    <%= f.select(:flight, @dates) %>
+  </div>
+
+  <div>
+    <%= f.submit "Submit" %>
+  </div>
+<% end %>
